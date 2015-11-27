@@ -14,7 +14,7 @@ RUN rm -rf apt-ntop.deb
 
 # Install nProbe
 RUN apt-get update
-RUN apt-get -y -q --no-install-recommends install ntopng libpcap
+RUN apt-get -y -q --no-install-recommends install ntopng libpcap-dev
 
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
