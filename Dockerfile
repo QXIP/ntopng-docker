@@ -1,4 +1,4 @@
-FROM phusion/baseimage:latest
+FROM ubuntu:14.04
 MAINTAINER L. Mangani <mangani@ntop.org>
 
 # Set correct environment variables.
