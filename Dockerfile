@@ -23,7 +23,7 @@ RUN sudo chmod +x /run.sh
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-EXPOSE 80
+EXPOSE 3000
 
 # Run & Obtain ID
 ENTRYPOINT ["/run.sh"]
