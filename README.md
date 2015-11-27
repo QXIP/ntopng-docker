@@ -11,6 +11,6 @@ ntopng is a web-based network traffic monitoring application released under GPLv
 ###Install & Run
 ```
 docker pull qxip/nprobe-docker
-docker run --net=host -name ntopng --net=host -p 3000:3000 -t -i qxip/ntopng-docker
+docker run --net=host -name ntopng --net=host -p 3000:3000 -t -i qxip/ntopng-docker {optional params}
 ```
 
