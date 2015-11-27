@@ -3,6 +3,7 @@ MAINTAINER L. Mangani <mangani@ntop.org>
 
 # Set correct environment variables.
 ENV HOME /root
+ENV DEBIAN_FRONTEND noninteractive
 
 # Update & Install from NTOP Package
 RUN apt-get update -y -q && apt-get -y -q install wget
@@ -14,7 +15,10 @@ RUN rm -rf apt-ntop.deb
 
 # Install nProbe
 RUN apt-get update
-RUN apt-get -y -q --no-install-recommends install ntopng libpcap-dev
+RUN apt-get install --no-install-recommends --no-install-suggests -yqq ntopng libpcap-dev libmysqlclient18 redis-server
+
+COPY run.sh /
+RUN sudo chmod +x /run.sh
 
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -22,6 +26,5 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 EXPOSE 80
 
 # Run & Obtain ID
-RUN ntopng
-
+ENTRYPOINT ["/run.sh"]
 
